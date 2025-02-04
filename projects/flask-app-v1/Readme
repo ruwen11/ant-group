@@ -22,3 +22,7 @@ kubectl port-forward service/flask-service 5000:5000 or use minikube service fla
 This will open the service URL in your default web browser.
 
 http://localhost:5000/
+
+Commands to stop the application:
+1. kubectl delete -f flask-deployment.yaml
+2. kubectl delete -f flask-service.yaml

@@ -1,0 +1,17 @@
+# Dockerfile.v2
+FROM python:3.9-slim
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the Flask application code into the container
+COPY app_v2.py /app/
+
+# Install dependencies
+RUN pip install flask psutil
+
+# Expose the port that the app will run on
+EXPOSE 5000
+
+# Command to run the Flask app
+CMD ["python", "app_v2.py"]

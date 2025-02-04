@@ -1,0 +1,18 @@
+For version 01:
+eval $(minikube docker-env)
+docker build -f Dockerfile1 -t flask-app:v01 .
+kubectl port-forward svc/flask-service-v1 5001:5000
+
+For version 02:
+eval $(minikube docker-env)
+docker build -f Dockerfile2 -t flask-app:v02 .
+kubectl port-forward svc/flask-service-v2 5002:5000
+
+
+For version 03:
+eval $(minikube docker-env)
+docker build -f Dockerfile2 -t flask-app:v03 .
+kubectl apply -f database-deployment.yaml
+kubectl apply -f flask-deployment.yaml
+kubectl expose deployment flask-app --type=NodePort --name=flask-service
+kubectl port-forward svc/flask-service-v2 5000:5000

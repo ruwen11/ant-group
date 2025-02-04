@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  flask-app:
+    build: .
+    image: flask-app:v03
+    ports:
+      - "5000:5000"
+    depends_on:
+      - postgres
+    environment:
+      - DB_HOST=postgres
+      - DB_NAME=access_log
+      - DB_USER=admin
+      - DB_PASSWORD=password
+
+  postgres:
+    image: postgres:13
+    environment:
+      - POSTGRES_DB=access_log
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-data:

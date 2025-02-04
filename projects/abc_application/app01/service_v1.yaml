@@ -1,0 +1,13 @@
+# version1-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: flask-service-v1
+spec:
+  selector:
+    app: flask-app-v1
+  ports:
+  - protocol: TCP
+    port: 5000
+    targetPort: 5000
+  type: NodePort

@@ -1,10 +1,24 @@
+**IMPLEMENTING DOCKER BASED FLASK APPLICATION VERSION 1
 
+Commands:
+1. docker build -t flask-app:v1 .
+    1.1. To test if the app is running successfully: docker run -p 5000:5000 flask-app:v1
+ docker run -p 5000:5000 flask-app:v1
 
-kubectl logs flask-app-7cb7cddf88-v2lf4
+1. kubectl apply -f flask-deployment.yaml
+2. kubectl apply -f flask-service.yaml
+3. minikube tunnel
+4. kubectl get services
+5. Access the app via browser: http://127.0.0.1:5000
+
+* To check the logs specific to the pod 
+kubectl logs <flask-app-7cb7cddf88-v2lf4>
 
 $ kubectl get endpoints flask-service
 NAME            ENDPOINTS         AGE
 flask-service   10.244.0.3:5000   47m
 
-kubectl port-forward service/flask-service 5000:5000
+kubectl port-forward service/flask-service 5000:5000 or use minikube service flask-service
+This will open the service URL in your default web browser.
+
 http://localhost:5000/

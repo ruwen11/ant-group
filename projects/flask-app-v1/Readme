@@ -1,0 +1,10 @@
+
+
+kubectl logs flask-app-7cb7cddf88-v2lf4
+
+$ kubectl get endpoints flask-service
+NAME            ENDPOINTS         AGE
+flask-service   10.244.0.3:5000   47m
+
+kubectl port-forward service/flask-service 5000:5000
+http://localhost:5000/

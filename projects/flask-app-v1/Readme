@@ -32,4 +32,5 @@ Commands to stop the application:
 1. kubectl delete -f flask-deployment.yaml
 2. kubectl delete -f flask-service.yaml
 
-Note:- Command to find services in windows: netstat -ano | findstr postgres
+Note:-  Command to find services in windows: netstat -ano | findstr postgres
+        Command to find docker volumes in minikube: docker volume ls
